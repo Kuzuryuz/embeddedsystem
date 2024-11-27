@@ -1,6 +1,6 @@
-#define BLYNK_TEMPLATE_ID "TMPL6001DbDLu"
-#define BLYNK_TEMPLATE_NAME "ESP32 S3"
-#define BLYNK_AUTH_TOKEN "4972uUIJGD87GGsYVzQvWniwAYwGLOve"
+#define BLYNK_TEMPLATE_ID "TMPL6lEgwGCl1"
+#define BLYNK_TEMPLATE_NAME "Project"
+#define BLYNK_AUTH_TOKEN "cGFTkOIASPTcT4cgfxL6jOWcRcMiP8ZX"
 
 #define BLYNK_PRINT Serial
 
@@ -10,8 +10,8 @@
 #include <Arduino.h>
 #include <BH1750FVI.h>
 
-char ssid[] = "pimandpie_2G";
-char pass[] = "n1l2p3p4";
+char ssid[] = "";
+char pass[] = "";
 
 // Define pins and sensors
 #define RX (35)
@@ -107,6 +107,7 @@ void loop() {
           Serial.println("------------------------------------------------------------");
         }
         digitalWrite(relayPin, !digitalRead(relayPin));
+        Blynk.virtualWrite(V0, digitalRead(relayPin));
       }
       lastDebounceTime = millis();
     }

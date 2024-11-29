@@ -83,15 +83,35 @@ void sendDataToCloudPlatform(String data) {
     Serial.print(" | Temperature: " + String(temperature));
     Serial.print(" | Gas: " + String(gasData));
     Serial.println(" | Light: " + String(lux));
-  } else if (data.startsWith("command_id")) {
-    Serial.println(data);
-  }
 
-  // Send to Blynk
-  // Blynk.virtualWrite(V1, humidity);
-  // Blynk.virtualWrite(V2, temperature);
-  // Blynk.virtualWrite(V3, gasData);
-  // Blynk.virtualWrite(V4, lux);
+    // Send to Blynk
+    // Blynk.virtualWrite(V1, humidity);
+    // Blynk.virtualWrite(V2, temperature);
+    // Blynk.virtualWrite(V3, gasData);
+    // Blynk.virtualWrite(V4, lux);
+  } else if (data.startsWith("command_id")) {
+    if (millis() - lastDebounceTime > debounceDelay) {
+      int index = data.indexOf(":") + 2;
+      int command_id = data.substring(index).toInt();
+
+      // Control the LED
+      if (command_id == 13) {
+        digitalWrite(relayPin, HIGH);
+        Serial.println("------------------------------------------------------------");
+        Serial.println("Voice Command Detected! Turning LED on");
+        Serial.println("------------------------------------------------------------");
+      } else if (command_id == 14) {
+        digitalWrite(relayPin, LOW);
+        Serial.println("------------------------------------------------------------");
+        Serial.println("Voice Command Detected! Turning LED off");
+        Serial.println("------------------------------------------------------------");
+      }
+
+      // Send data to cloud platform
+      // Blynk.virtualWrite(V0, digitalRead(relayPin));
+      lastDebounceTime = millis();
+    }
+  }
 
   // If high temperature and smoke detection
   if (temperature > 45.00) {
@@ -111,13 +131,13 @@ void setup() {
 
   LightSensor.begin();  
 
-  Serial.print("Connecting to WiFi...");
-  WiFi.begin(ssid, pass);
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
-    delay(1000);
-  }
-  Serial.println("\nConnected to WiFi!");
+  // Serial.print("Connecting to WiFi...");
+  // WiFi.begin(ssid, pass);
+  // while (WiFi.status() != WL_CONNECTED) {
+  //   Serial.print(".");
+  //   delay(1000);
+  // }
+  // Serial.println("\nConnected to WiFi!");
 
   // Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
 }

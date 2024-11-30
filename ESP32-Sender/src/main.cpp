@@ -26,11 +26,11 @@ void loop() {
   // Concat data
   String data = "Humidity: " + String(h, 2) + "% | Temperature: " + String(t, 2) + "°C | Smoke and gas: " + String(avalue);
 
-  // Send data to ESP32-S3
+  // Send data to ESP32 Receiver
   Serial1.println(data);
 
   // Print data sended
-  Serial.println("Sent to ESP32-S3: ");
+  Serial.println("Sent to ESP32-Receiver: ");
   Serial.println(data);
   Serial.println("------------------------------------------------------------");
 

@@ -1,26 +1,41 @@
-// #define BLYNK_TEMPLATE_ID "TMPL6lEgwGCl1"
-// #define BLYNK_TEMPLATE_NAME "Project"
-// #define BLYNK_AUTH_TOKEN "cGFTkOIASPTcT4cgfxL6jOWcRcMiP8ZX"
+// Define Blynk's variables
+#define BLYNK_TEMPLATE_ID "TMPL6lEgwGCl1"
+#define BLYNK_TEMPLATE_NAME "Project"
+#define BLYNK_AUTH_TOKEN "cGFTkOIASPTcT4cgfxL6jOWcRcMiP8ZX"
 
-// #define BLYNK_PRINT Serial
+#define BLYNK_PRINT Serial
 
+#include <Arduino.h>
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <HTTPClient.h>
-// #include <BlynkSimpleEsp32.h>
-#include <Arduino.h>
+#include <BlynkSimpleEsp32.h>
+#include <Firebase_ESP_Client.h>
+#include "addons/RTDBHelper.h"
+#include "addons/TokenHelper.h"
 #include <BH1750FVI.h>
 
+// Define WiFi name and password
 char ssid[] = "";
 char pass[] = "";
+
+// Define Firebase's variables
+#define API_KEY "AIzaSyBzfFM6Z7fJ2OSBFci0oCO0YSU-UZvDohw"
+#define DATABASE_URL "https://embedded-project-7589a-default-rtdb.asia-southeast1.firebasedatabase.app/"
+
+FirebaseData fbdo;
+FirebaseAuth auth;
+FirebaseConfig config;
+
+bool signupOK = false;
 
 const char* lineToken = "Iu2HRiaTEBV6IN7V13tjkcQ1rwQzV72TDynPXG6LhV1";
 
 // Define pins and sensors
-#define RX1 (16)
-#define TX1 (17)
-#define RX2 (5)
-#define TX2 (18)
+#define RX1D (16)
+#define TX1D (17)
+#define RX2D (5)
+#define TX2D (18)
 #define touchSensorPin (2)
 #define relayPin (4)
 BH1750FVI LightSensor(BH1750FVI::k_DevModeContLowRes);
@@ -32,7 +47,12 @@ int gasData;
 uint16_t lux;
 int motionState = LOW;
 
-// Debounce time 750ms
+// Line notification delay time
+unsigned long lastTempAlarm = 0;
+unsigned long lastSmokeAlarm = 0;
+unsigned long alarmDelay = 30000;
+
+// Button and voice control debounce time
 unsigned long lastDebounceTime = 0;
 unsigned long debounceDelay = 750;
 
@@ -85,12 +105,23 @@ void sendDataToCloudPlatform(String data) {
     Serial.print(" | Temperature: " + String(temperature));
     Serial.print(" | Gas: " + String(gasData));
     Serial.println(" | Light: " + String(lux));
+    Serial.println("------------------------------------------------------------");
 
     // Send data to cloud platform
-    // Blynk.virtualWrite(V1, humidity);
-    // Blynk.virtualWrite(V2, temperature);
-    // Blynk.virtualWrite(V3, gasData);
-    // Blynk.virtualWrite(V4, lux);
+    Blynk.virtualWrite(V1, humidity);
+    Blynk.virtualWrite(V2, temperature);
+    Blynk.virtualWrite(V3, gasData);
+    Blynk.virtualWrite(V4, lux);
+
+    if (Firebase.ready() && signupOK) {
+      Serial.println("Send data to Firebase...");
+      Firebase.RTDB.setFloat(&fbdo, "Sensor/Humidity", humidity);
+      Firebase.RTDB.setFloat(&fbdo, "Sensor/Temperature", temperature);
+      Firebase.RTDB.setInt(&fbdo, "Sensor/GasLevel", gasData);
+      Firebase.RTDB.setInt(&fbdo, "Sensor/LightLevel", lux);
+      Serial.println("Sent complete!");
+      Serial.println("------------------------------------------------------------");
+    }
   } else if (data.startsWith("command_id")) {
     if (millis() - lastDebounceTime > debounceDelay) {
       int index = data.indexOf(":") + 2;
@@ -99,18 +130,20 @@ void sendDataToCloudPlatform(String data) {
       // Control the LED
       if (command_id == 13) {
         digitalWrite(relayPin, HIGH);
-        Serial.println("------------------------------------------------------------");
         Serial.println("Voice Command Detected! Turning LED on");
         Serial.println("------------------------------------------------------------");
       } else if (command_id == 14) {
         digitalWrite(relayPin, LOW);
-        Serial.println("------------------------------------------------------------");
         Serial.println("Voice Command Detected! Turning LED off");
         Serial.println("------------------------------------------------------------");
       }
 
       // Send data to cloud platform
-      // Blynk.virtualWrite(V0, digitalRead(relayPin));
+      Blynk.virtualWrite(V0, digitalRead(relayPin));
+
+      if (Firebase.ready() && signupOK){
+        Firebase.RTDB.setBool(&fbdo, "Actuator/LED", digitalRead(relayPin));
+      }
 
       // Reset debouce time
       lastDebounceTime = millis();
@@ -118,11 +151,24 @@ void sendDataToCloudPlatform(String data) {
   }
 
   // If high temperature and smoke detection
-  if (true) {
-    Serial.println("------------------------------------------------------------");
-    Serial.println("Fire Alarm Detected!");
-    String notiMessage = "ตรวจพบควันและอุณหภูมิสูง (" + String(temperature) + "°C)";
+  String notiMessage;
+
+  // Check if high temperature
+  if (temperature > 35.00 && (millis() - lastTempAlarm > alarmDelay)) {
+    Serial.println("High Temperature Detected! (" + String(temperature) + "°C)");
+    notiMessage = "ตรวจพบอุณหภูมิสูง (" + String(temperature) + "°C)";
     sendLineNotify(notiMessage);
+
+    lastTempAlarm = millis();
+  }
+
+  // Check if high gas level
+  if (gasData > 500 && (millis() - lastSmokeAlarm > alarmDelay)) {
+    Serial.println("High Gas Level Detected! (" + String(gasData) + "ppm)");
+    notiMessage = "ตรวจพบควันปริมาณมาก (" + String(gasData) + " ppm)";
+    sendLineNotify(notiMessage);
+
+    lastSmokeAlarm = millis();
   }
 }
 
@@ -131,8 +177,8 @@ void setup() {
   pinMode(relayPin, OUTPUT);
 
   Serial.begin(115200);
-  Serial1.begin(115200, SERIAL_8N1, RX1, TX1);
-  Serial2.begin(115200, SERIAL_8N1, RX2, TX2);
+  Serial1.begin(115200, SERIAL_8N1, RX1D, TX1D);
+  Serial2.begin(115200, SERIAL_8N1, RX2D, TX2D);
 
   LightSensor.begin();  
 
@@ -144,11 +190,30 @@ void setup() {
   }
   Serial.println("\nConnected to WiFi!");
 
-  // Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+
+  // Edit Firebase's configuration
+  config.api_key = API_KEY;
+  config.database_url = DATABASE_URL;
+
+  // Sign up Firebase
+  if (Firebase.signUp(&config, &auth, "", "")){
+    Serial.println("ok");
+    signupOK = true;
+  }
+  else{
+    Serial.printf("%s\n", config.signer.signupError.message.c_str());
+  }
+  
+  // Assign the callback function for the long running token generation task 
+  config.token_status_callback = tokenStatusCallback;
+  
+  Firebase.begin(&config, &auth);
+  Firebase.reconnectWiFi(true);
 }
 
 void loop() {
-  // Blynk.run();
+  Blynk.run();
 
   // Read data from sensor node (ESP32 DEVKIT V1)
   if (Serial1.available()) {
@@ -179,18 +244,20 @@ void loop() {
       motionState = reading;
       if (motionState == HIGH) {
         if (digitalRead(relayPin) == LOW) {
-          Serial.println("------------------------------------------------------------");
           Serial.println("Touch Sensor Detected! Turning LED on");
           Serial.println("------------------------------------------------------------");
         } else {
-          Serial.println("------------------------------------------------------------");
           Serial.println("Touch Sensor Detected! Turning LED off");
           Serial.println("------------------------------------------------------------");
         }
         digitalWrite(relayPin, !digitalRead(relayPin));
 
-        // Send data to Blynk
-        // Blynk.virtualWrite(V0, digitalRead(relayPin));
+        // Send data to cloud platform
+        Blynk.virtualWrite(V0, digitalRead(relayPin));
+
+        if (Firebase.ready() && signupOK){
+          Firebase.RTDB.setBool(&fbdo, "Actuator/LED", digitalRead(relayPin));
+        }
       }
       lastDebounceTime = millis();
     }

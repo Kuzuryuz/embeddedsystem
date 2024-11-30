@@ -14,11 +14,13 @@
 char ssid[] = "";
 char pass[] = "";
 
-const char* lineToken = "EtXxXHJfnpg0UVtf5oj1X9sZkMTuoj7UtYNk9z2hAPP";
+const char* lineToken = "Iu2HRiaTEBV6IN7V13tjkcQ1rwQzV72TDynPXG6LhV1";
 
 // Define pins and sensors
-#define RX (16)
-#define TX (17)
+#define RX1 (16)
+#define TX1 (17)
+#define RX2 (5)
+#define TX2 (18)
 #define touchSensorPin (2)
 #define relayPin (4)
 BH1750FVI LightSensor(BH1750FVI::k_DevModeContLowRes);
@@ -30,7 +32,7 @@ int gasData;
 uint16_t lux;
 int motionState = LOW;
 
-// Debounce time 1.5 s
+// Debounce time 750ms
 unsigned long lastDebounceTime = 0;
 unsigned long debounceDelay = 750;
 
@@ -84,7 +86,7 @@ void sendDataToCloudPlatform(String data) {
     Serial.print(" | Gas: " + String(gasData));
     Serial.println(" | Light: " + String(lux));
 
-    // Send to Blynk
+    // Send data to cloud platform
     // Blynk.virtualWrite(V1, humidity);
     // Blynk.virtualWrite(V2, temperature);
     // Blynk.virtualWrite(V3, gasData);
@@ -109,12 +111,14 @@ void sendDataToCloudPlatform(String data) {
 
       // Send data to cloud platform
       // Blynk.virtualWrite(V0, digitalRead(relayPin));
+
+      // Reset debouce time
       lastDebounceTime = millis();
     }
   }
 
   // If high temperature and smoke detection
-  if (temperature > 45.00) {
+  if (true) {
     Serial.println("------------------------------------------------------------");
     Serial.println("Fire Alarm Detected!");
     String notiMessage = "ตรวจพบควันและอุณหภูมิสูง (" + String(temperature) + "°C)";
@@ -127,17 +131,18 @@ void setup() {
   pinMode(relayPin, OUTPUT);
 
   Serial.begin(115200);
-  Serial1.begin(115200, SERIAL_8N1, RX, TX);
+  Serial1.begin(115200, SERIAL_8N1, RX1, TX1);
+  Serial2.begin(115200, SERIAL_8N1, RX2, TX2);
 
   LightSensor.begin();  
 
-  // Serial.print("Connecting to WiFi...");
-  // WiFi.begin(ssid, pass);
-  // while (WiFi.status() != WL_CONNECTED) {
-  //   Serial.print(".");
-  //   delay(1000);
-  // }
-  // Serial.println("\nConnected to WiFi!");
+  Serial.print("Connecting to WiFi...");
+  WiFi.begin(ssid, pass);
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(1000);
+  }
+  Serial.println("\nConnected to WiFi!");
 
   // Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
 }
@@ -148,6 +153,17 @@ void loop() {
   // Read data from sensor node (ESP32 DEVKIT V1)
   if (Serial1.available()) {
     char c = Serial1.read();
+    if (c == '\n') {
+      sendDataToCloudPlatform(receivedData);
+      receivedData = "";
+    } else {
+      receivedData += c;
+    }
+  }
+
+  // Read data from Microphone module (ESP32-S3)
+  if (Serial2.available()) {
+    char c = Serial2.read();
     if (c == '\n') {
       sendDataToCloudPlatform(receivedData);
       receivedData = "";
@@ -172,6 +188,8 @@ void loop() {
           Serial.println("------------------------------------------------------------");
         }
         digitalWrite(relayPin, !digitalRead(relayPin));
+
+        // Send data to Blynk
         // Blynk.virtualWrite(V0, digitalRead(relayPin));
       }
       lastDebounceTime = millis();

@@ -1,7 +1,7 @@
 // Define Blynk's variables
-#define BLYNK_TEMPLATE_ID "TMPL6lEgwGCl1"
-#define BLYNK_TEMPLATE_NAME "Project"
-#define BLYNK_AUTH_TOKEN "cGFTkOIASPTcT4cgfxL6jOWcRcMiP8ZX"
+#define BLYNK_TEMPLATE_ID "TMPL6vPpIktZS"
+#define BLYNK_TEMPLATE_NAME "EmbeddedProject"
+#define BLYNK_AUTH_TOKEN "sk0yCLU1jZHmNOZOXWDqfsimqR1eeSly"
 
 #define BLYNK_PRINT Serial
 

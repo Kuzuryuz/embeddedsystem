@@ -31,6 +31,8 @@ bool signupOK = false;
 
 const char* lineToken = "Iu2HRiaTEBV6IN7V13tjkcQ1rwQzV72TDynPXG6LhV1";
 
+const char* GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbySNOxZc3WjAt_VrqCaqTkYl68D_uE4fa24NFH6EgW2vpfT28-s7H4bi6opJQORroH6/exec";
+
 // Define pins and sensors
 #define RX1D (16)
 #define TX1D (17)
@@ -82,6 +84,32 @@ void sendLineNotify(String message) {
   }
 }
 
+// Function to send data to google sheets
+void sendToGoogleSheets(float humidity, float temperature, int gasLevel, int lightLevel) {
+  Serial.println("Sending data to google sheets...");
+
+  HTTPClient http;
+
+  // Create the URL with parameters
+  String url = String(GOOGLE_SCRIPT_URL) + "?value1=" + String(humidity) +
+               "&value2=" + String(temperature) +
+               "&value3=" + String(gasLevel) +
+               "&value4=" + String(lightLevel);
+
+  http.begin(url);
+  int httpCode = http.GET();
+
+  if (httpCode > 0) {
+    Serial.printf("Data sent to Google Sheets. HTTP Response: %d\n", httpCode);
+    Serial.println("------------------------------------------------------------");
+  } else {
+    Serial.printf("Error sending to Google Sheets: %s\n", http.errorToString(httpCode).c_str());
+    Serial.println("------------------------------------------------------------");
+  }
+
+  http.end();
+}
+
 // Extract recieved data from ESP32 DEVKIT V1
 void sendDataToCloudPlatform(String data) {
   if (data.startsWith("Humidity:")) {
@@ -122,6 +150,9 @@ void sendDataToCloudPlatform(String data) {
       Serial.println("Sent complete!");
       Serial.println("------------------------------------------------------------");
     }
+
+    // Optional: Send data to Google Sheets
+    // sendToGoogleSheets(humidity, temperature, gasData, lux);
   } else if (data.startsWith("command_id")) {
     if (millis() - lastDebounceTime > debounceDelay) {
       int index = data.indexOf(":") + 2;

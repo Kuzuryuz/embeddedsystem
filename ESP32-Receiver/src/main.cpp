@@ -145,8 +145,8 @@ void sendDataToCloudPlatform(String data) {
       Serial.println("Send data to Firebase...");
       Firebase.RTDB.setFloat(&fbdo, "Sensor/Humidity", humidity);
       Firebase.RTDB.setFloat(&fbdo, "Sensor/Temperature", temperature);
-      Firebase.RTDB.setInt(&fbdo, "Sensor/GasLevel", gasData);
-      Firebase.RTDB.setInt(&fbdo, "Sensor/LightLevel", lux);
+      Firebase.RTDB.setInt(&fbdo, "Sensor/GasConcentration", gasData);
+      Firebase.RTDB.setInt(&fbdo, "Sensor/LightIntensity", lux);
       Serial.println("Sent complete!");
       Serial.println("------------------------------------------------------------");
     }

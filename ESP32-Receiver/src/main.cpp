@@ -195,8 +195,8 @@ void sendDataToCloudPlatform(String data) {
 
   // Check if high gas level
   if (gasData > 500 && (millis() - lastSmokeAlarm > alarmDelay)) {
-    Serial.println("High Gas Level Detected! (" + String(gasData) + "ppm)");
-    notiMessage = "ตรวจพบควันปริมาณมาก (" + String(gasData) + " ppm)";
+    Serial.println("High Gas Level Detected! (" + String(gasData) + ")");
+    notiMessage = "ตรวจพบควันปริมาณมาก (" + String(gasData) + ")";
     sendLineNotify(notiMessage);
 
     lastSmokeAlarm = millis();

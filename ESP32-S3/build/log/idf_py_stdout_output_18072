@@ -1,0 +1,190 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1918
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xe5c
+load:0x403cb700,len:0x303c
+entry 0x403c893c
+[0;32mI (27) boot: ESP-IDF v5.3.1-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Nov 29 2024 16:26:00[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (39) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (44) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (49) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (78) boot:  1 model            Unknown data     01 82 00210000 0050c000[0m
+[0;32mI (85) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=3c070020 size=217e8h (137192) map[0m
+[0;32mI (118) esp_image: segment 1: paddr=00031810 vaddr=3fc99600 size=05600h ( 22016) load[0m
+[0;32mI (123) esp_image: segment 2: paddr=00036e18 vaddr=40378000 size=09200h ( 37376) load[0m
+[0;32mI (131) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=628a8h (403624) map[0m
+[0;32mI (194) esp_image: segment 4: paddr=000a28d0 vaddr=40381200 size=08360h ( 33632) load[0m
+[0;32mI (208) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (208) boot: Disabling RNG early entropy source...[0m
+[0;32mI (220) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (220) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (221) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (225) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (231) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (236) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (241) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (247) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (253) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (258) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (264) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (270) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (275) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (279) esp_psram: Speed: 80MHz[0m
+[0;32mI (283) cpu_start: Multicore app[0m
+[0;32mI (608) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (619) cpu_start: Pro cpu start user code[0m
+[0;32mI (619) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (619) app_init: Application information:[0m
+[0;32mI (622) app_init: Project name:     speech_commands_recognition[0m
+[0;32mI (628) app_init: App version:      79373d3[0m
+[0;32mI (633) app_init: Compile time:     Nov 29 2024 16:25:45[0m
+[0;32mI (639) app_init: ELF file SHA256:  94d8facc3...[0m
+[0;32mI (645) app_init: ESP-IDF:          v5.3.1-dirty[0m
+[0;32mI (650) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (655) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (660) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (664) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (672) heap_init: At 3FC9FA50 len 00049CC0 (295 KiB): RAM[0m
+[0;32mI (678) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (684) heap_init: At 600FE100 len 00001EE8 (7 KiB): RTCRAM[0m
+[0;32mI (690) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (698) spi_flash: detected chip: generic[0m
+[0;32mI (702) spi_flash: flash io: qio[0m
+[0;32mI (706) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (713) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (720) main_task: Started on CPU0[0m
+[0;32mI (740) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (740) main_task: Calling app_main()[0m
+[0;32mI (740) MODEL_LOADER: The storage free size is 23936 KB[0m
+[0;32mI (750) MODEL_LOADER: The partition size is 5168 KB[0m
+[0;32mI (750) MODEL_LOADER: Successfully map model partition[0m
+[0;32mI (760) AFE_SR: afe interface for speech recognition
+[0m
+[0;32mI (770) AFE_SR: AFE version: SR_V220727
+[0m
+[0;32mI (770) AFE_SR: Initial auido front-end, total channel: 2, mic num: 1, ref num: 1
+[0m
+[0;32mI (780) AFE_SR: aec_init: 0, se_init: 1, vad_init: 1
+[0m
+[0;32mI (780) AFE_SR: wakenet_init: 1
+[0m
+MC Quantized wakenet9: wakeNet9_v1h24_hiesp_3_0.63_0.635, tigger:v3, mode:2, p:0, (Jun  2 2023 11:39:44)
+[0;32mI (920) AFE_SR: wake num: 2, mode: 0, (Jun  2 2023 11:39:44)
+[0m
+multinet:mn5q8_en
+[0;32mI (920) main_task: Returned from app_main()[0m
+Quantized8 Multinet5: MN5Q8_v2_english_8_0.9_0.90, beam search:v2, (Jun  2 2023 11:39:44)
+esp_mn_commands_update_from_sdkconfig
+[0;32mI (1100) MN_COMMAND: ---------------------SPEECH COMMANDS---------------------[0m
+[0;32mI (1100) MN_COMMAND: Command ID0, phrase ID0: TfL Mm c qbK[0m
+[0;32mI (1110) MN_COMMAND: Command ID1, phrase ID1: Sgl c Sel[0m
+[0;32mI (1110) MN_COMMAND: Command ID2, phrase ID2: PLd NoZ paNcL[0m
+[0;32mI (1120) MN_COMMAND: Command ID3, phrase ID3: TkN nN Mi StNDBnKS[0m
+[0;32mI (1130) MN_COMMAND: Command ID4, phrase ID4: TkN eF Mi StNDBnKS[0m
+[0;32mI (1130) MN_COMMAND: Command ID5, phrase ID5: hicST VnLYoM[0m
+[0;32mI (1140) MN_COMMAND: Command ID6, phrase ID6: LbcST VnLYoM[0m
+[0;32mI (1150) MN_COMMAND: Command ID7, phrase ID7: gNKRmS jc VnLYoM[0m
+[0;32mI (1150) MN_COMMAND: Command ID8, phrase ID8: DgKRmS jc VnLYoM[0m
+[0;32mI (1160) MN_COMMAND: Command ID9, phrase ID9: TkN nN jc TmVm[0m
+[0;32mI (1170) MN_COMMAND: Command ID10, phrase ID10: TkN eF jc TmVm[0m
+[0;32mI (1170) MN_COMMAND: Command ID11, phrase ID11: MdK Mm c Tm[0m
+[0;32mI (1180) MN_COMMAND: Command ID12, phrase ID12: MdK Mm c KnFm[0m
+[0;32mI (1180) MN_COMMAND: Command ID13, phrase ID13: TkN nN jc LiT[0m
+[0;32mI (1190) MN_COMMAND: Command ID14, phrase ID14: TkN eF jc LiT[0m
+[0;32mI (1200) MN_COMMAND: Command ID15, phrase ID15: pdNq jc KcLk To RfD[0m
+[0;32mI (1200) MN_COMMAND: Command ID16, phrase ID16: pdNq jc KcLk To GRmN[0m
+[0;32mI (1210) MN_COMMAND: Command ID17, phrase ID17: TkN nN eL jc LiTS[0m
+[0;32mI (1220) MN_COMMAND: Command ID18, phrase ID18: TkN eF eL jc LiTS[0m
+[0;32mI (1230) MN_COMMAND: Command ID19, phrase ID19: TkN nN jc fR KcNDgscNk[0m
+[0;32mI (1230) MN_COMMAND: Command ID20, phrase ID20: TkN eF jc fR KcNDgscNk[0m
+[0;32mI (1240) MN_COMMAND: Command ID21, phrase ID21: SfT jc TfMPRcpk To SgKSTmN DgGRmZ[0m
+[0;32mI (1250) MN_COMMAND: Command ID22, phrase ID22: SfT jc TfMPRcpk To SfVcNTmN DgGRmZ[0m
+[0;32mI (1260) MN_COMMAND: Command ID23, phrase ID23: SfT jc TfMPRcpk To dTmN DgGRmZ[0m
+[0;32mI (1260) MN_COMMAND: Command ID24, phrase ID24: SfT jc TfMPRcpk To NiNTmN DgGRmZ[0m
+[0;32mI (1270) MN_COMMAND: Command ID25, phrase ID25: SfT jc TfMPRcpk To TWfNTm DgGRmZ[0m
+[0;32mI (1280) MN_COMMAND: Command ID26, phrase ID26: SfT jc TfMPRcpk To TWfNTm WcN DgGRmZ[0m
+[0;32mI (1290) MN_COMMAND: Command ID27, phrase ID27: SfT jc TfMPRcpk To TWfNTm To DgGRmZ[0m
+[0;32mI (1300) MN_COMMAND: Command ID28, phrase ID28: SfT jc TfMPRcpk To TWfNTm vRm DgGRmZ[0m
+[0;32mI (1310) MN_COMMAND: Command ID29, phrase ID29: SfT jc TfMPRcpk To TWfNTm FeR DgGRmZ[0m
+[0;32mI (1310) MN_COMMAND: Command ID30, phrase ID30: SfT jc TfMPRcpk To TWfNTm FiV DgGRmZ[0m
+[0;32mI (1320) MN_COMMAND: Command ID31, phrase ID31: SfT jc TfMPRcpk To TWfNTm SgKS DgGRmZ[0m
+[0;32mI (1330) MN_COMMAND: ---------------------------------------------------------
+[0m
+phrase id:0, command id:0, str:T f ...
+phrase id:1, command id:1, str:S g ...
+phrase id:2, command id:2, str:P L ...
+phrase id:3, command id:3, str:T k ...
+phrase id:4, command id:4, str:T k ...
+phrase id:5, command id:5, str:h i ...
+phrase id:6, command id:6, str:L b ...
+phrase id:7, command id:7, str:g N ...
+phrase id:8, command id:8, str:D g ...
+phrase id:9, command id:9, str:T k ...
+phrase id:10, command id:10, str:T k ...
+phrase id:11, command id:11, str:M d ...
+phrase id:12, command id:12, str:M d ...
+phrase id:13, command id:13, str:T k ...
+phrase id:14, command id:14, str:T k ...
+phrase id:15, command id:15, str:p d ...
+phrase id:16, command id:16, str:p d ...
+phrase id:17, command id:17, str:T k ...
+phrase id:18, command id:18, str:T k ...
+phrase id:19, command id:19, str:T k ...
+phrase id:20, command id:20, str:T k ...
+phrase id:21, command id:21, str:S f ...
+phrase id:22, command id:22, str:S f ...
+phrase id:23, command id:23, str:S f ...
+phrase id:24, command id:24, str:S f ...
+phrase id:25, command id:25, str:S f ...
+phrase id:26, command id:26, str:S f ...
+phrase id:27, command id:27, str:S f ...
+phrase id:28, command id:28, str:S f ...
+phrase id:29, command id:29, str:S f ...
+phrase id:30, command id:30, str:S f ...
+phrase id:31, command id:31, str:S f ...
+------------detect start------------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 1
+TOP 1, command_id: 13, phrase_id: 13, string: ���~�&�..[����a�L�;�n�[8�t�5������烕v���F�����3�p�����ƞ�}D{U(8�<p�[��
+��oz�{M�F6[*m`'�A� jg��Ayi͇�$�:)�ᒏ��sy�Rzg}@�e�~m�Bx��o>�^�/2_@2�y���J���[��A�����z���|�/� nRl]�(�;��z��ICH���?ބ�yQ��{-x�^�����]ґ�=��0�b1ߴ�B��?, prob: 0.216601
+TOP 2, command_id: 9, phrase_id: 9, string: ���~�&�..[����a�L�;�n�[8�t�5������烕v���F�����3�p�����ƞ�}D{U(8�<p�[��
+��oz�{M�F6[*m`'�A� jg��Ayi͇�$�:)�ᒏ��sy�Rzg}@�e�~m�Bx��o>�^�/2_@2�y���J���[��A�����z���|�/� nRl]�(�;��z��ICH���?ބ�yQ��{-x�^�����]ґ�=��0�b1ߴ�B��?, prob: 0.085640
+-----------listening-----------
+timeout, string:���~�&�..[����a�L�;�n�[8�t�5������烕v���F�����3�p�����ƞ�}D{U(8�<p�[��
+��oz�{M�F6[*m`'�A� jg��Ayi͇�$�:)�ᒏ��sy�Rzg}@�e�~m�Bx��o>�^�/2_@2�y���J���[��A�����z���|�/� nRl]�(�;��z��ICH���?ބ�yQ��{-x�^�����]ґ�=��0�b1ߴ�B��?
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: ���~�&�..[����a�L�;�n�[8�t�5������烕v���F�����3�p�����ƞ�}D{U(8�<p�[��
+��oz�{M�F6[*m`'�A� jg��Ayi͇�$�:)�ᒏ��sy�Rzg}@�e�~m�Bx��o>�^�/2_@2�y���J���[��A�����z���|�/� nRl]�(�;��z��ICH���?ބ�yQ��{-x�^�����]ґ�=��0�b1ߴ�B��?, prob: 0.166825
+TOP 2, command_id: 17, phrase_id: 17, string: ���~�&�..[����a�L�;�n�[8�t�5������烕v���F�����3�p�����ƞ�}D{U(8�<p�[��
+��oz�{M�F6[*m`'�A� jg��Ayi͇�$�:)�ᒏ��sy�Rzg}@�e�~m�Bx��o>�^�/2_@2�y���J���[��A�����z���|�/� nRl]�(�;��z��ICH���?ބ�yQ��{-x�^�����]ґ�=��0�b1ߴ�B��?, prob: 0.094161
+-----------listening-----------
+TOP 1, command_id: 13, phrase_id: 13, string: ���~�&�..[����a�L�;�n�[8�t�5������烕v���F�����3�p�����ƞ�}D{U(8�<p�[��
+��oz�{M�F6[*m`'�A� jg��Ayi͇�$�:)�ᒏ��sy�Rzg}@�e�~m�Bx��o>�^�/2_@2�y���J���[��A�����z���|�/� nRl]�(�;��z��ICH���?ބ�yQ��{-x�^�����]ґ�=��0�b1ߴ�B��?, prob: 0.343963
+TOP 2, command_id: 14, phrase_id: 14, string: ���~�&�..[����a�L�;�n�[8�t�5������烕v���F�����3�p�����ƞ�}D{U(8�<p�[��
+��oz�{M�F6[*m`'�A� jg��Ayi͇�$�:)�ᒏ��sy�Rzg}@�e�~m�Bx��o>�^�/2_@2�y���J���[��A�����z���|�/� nRl]�(�;��z��ICH���?ބ�yQ��{-x�^�����]ґ�=��0�b1ߴ�B��?, prob: 0.060300
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: ���~�&�..[����a�L�;�n�[8�t�5������烕v���F�����3�p�����ƞ�}D{U(8�<p�[��
+��oz�{M�F6[*m`'�A� jg��Ayi͇�$�:)�ᒏ��sy�Rzg}@�e�~m�Bx��o>�^�/2_@2�y���J���[��A�����z���|�/� nRl]�(�;��z��ICH���?ބ�yQ��{-x�^�����]ґ�=��0�b1ߴ�B��?, prob: 0.162827
+-----------listening-----------
+timeout, string:���~�&�..[����a�L�;�n�[8�t�5������烕v���F�����3�p�����ƞ�}D{U(8�<p�[��
+��oz�{M�F6[*m`'�A� jg��Ayi͇�$�:)�ᒏ��sy�Rzg}@�e�~m�Bx��o>�^�/2_@2�y���J���[��A�����z���|�/� nRl]�(�;��z��ICH���?ބ�yQ��{-x�^�����]ґ�=��0�b1ߴ�B��?
+
+-----------awaits to be waken up-----------

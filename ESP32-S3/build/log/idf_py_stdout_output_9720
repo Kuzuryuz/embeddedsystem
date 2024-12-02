@@ -1,0 +1,556 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2b (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037d8ae
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1918
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xe5c
+load:0x403cb700,len:0x303c
+entry 0x403c893c
+[0;32mI (26) boot: ESP-IDF v5.3.1-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Nov 29 2024 16:26:00[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (39) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (44) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (49) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (77) boot:  1 model            Unknown data     01 82 00210000 0050c000[0m
+[0;32mI (85) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=3c070020 size=22620h (140832) map[0m
+[0;32mI (119) esp_image: segment 1: paddr=00032648 vaddr=3fc9a400 size=05600h ( 22016) load[0m
+[0;32mI (123) esp_image: segment 2: paddr=00037c50 vaddr=40378000 size=083c8h ( 33736) load[0m
+[0;32mI (131) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=650a0h (413856) map[0m
+[0;32mI (196) esp_image: segment 4: paddr=000a50c8 vaddr=403803c8 size=0a014h ( 40980) load[0m
+[0;32mI (212) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (212) boot: Disabling RNG early entropy source...[0m
+[0;32mI (224) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (224) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (225) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (229) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (234) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (240) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (245) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (251) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (256) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (262) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (268) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (274) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (279) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (283) esp_psram: Speed: 80MHz[0m
+[0;32mI (287) cpu_start: Multicore app[0m
+[0;32mI (612) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (623) cpu_start: Pro cpu start user code[0m
+[0;32mI (623) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (623) app_init: Application information:[0m
+[0;32mI (626) app_init: Project name:     speech_commands_recognition[0m
+[0;32mI (632) app_init: App version:      79373d3[0m
+[0;32mI (637) app_init: Compile time:     Nov 29 2024 16:55:01[0m
+[0;32mI (643) app_init: ELF file SHA256:  835cbbe2e...[0m
+[0;32mI (648) app_init: ESP-IDF:          v5.3.1-dirty[0m
+[0;32mI (654) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (658) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (663) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (668) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (675) heap_init: At 3FCA0858 len 00048EB8 (291 KiB): RAM[0m
+[0;32mI (682) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (688) heap_init: At 600FE100 len 00001EE8 (7 KiB): RTCRAM[0m
+[0;32mI (694) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (702) spi_flash: detected chip: generic[0m
+[0;32mI (706) spi_flash: flash io: qio[0m
+[0;32mI (710) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (717) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (724) main_task: Started on CPU0[0m
+[0;32mI (734) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (734) main_task: Calling app_main()[0m
+[0;32mI (744) MODEL_LOADER: The storage free size is 23936 KB[0m
+[0;32mI (744) MODEL_LOADER: The partition size is 5168 KB[0m
+[0;32mI (754) MODEL_LOADER: Successfully map model partition[0m
+[0;32mI (764) AFE_SR: afe interface for speech recognition
+[0m
+[0;32mI (764) AFE_SR: AFE version: SR_V220727
+[0m
+[0;32mI (764) AFE_SR: Initial auido front-end, total channel: 2, mic num: 1, ref num: 1
+[0m
+[0;32mI (774) AFE_SR: aec_init: 0, se_init: 1, vad_init: 1
+[0m
+[0;32mI (784) AFE_SR: wakenet_init: 1
+[0m
+MC Quantized wakenet9: wakeNet9_v1h24_hiesp_3_0.63_0.635, tigger:v3, mode:2, p:0, (Jun  2 2023 11:39:44)
+[0;32mI (914) AFE_SR: wake num: 2, mode: 0, (Jun  2 2023 11:39:44)
+[0m
+multinet:mn5q8_en
+[0;32mI (934) main_task: Returned from app_main()[0m
+Quantized8 Multinet5: MN5Q8_v2_english_8_0.9_0.90, beam search:v2, (Jun  2 2023 11:39:44)
+esp_mn_commands_update_from_sdkconfig
+[0;32mI (1094) MN_COMMAND: ---------------------SPEECH COMMANDS---------------------[0m
+[0;32mI (1094) MN_COMMAND: Command ID0, phrase ID0: TfL Mm c qbK[0m
+[0;32mI (1104) MN_COMMAND: Command ID1, phrase ID1: Sgl c Sel[0m
+[0;32mI (1114) MN_COMMAND: Command ID2, phrase ID2: PLd NoZ paNcL[0m
+[0;32mI (1114) MN_COMMAND: Command ID3, phrase ID3: TkN nN Mi StNDBnKS[0m
+[0;32mI (1124) MN_COMMAND: Command ID4, phrase ID4: TkN eF Mi StNDBnKS[0m
+[0;32mI (1134) MN_COMMAND: Command ID5, phrase ID5: hicST VnLYoM[0m
+[0;32mI (1134) MN_COMMAND: Command ID6, phrase ID6: LbcST VnLYoM[0m
+[0;32mI (1144) MN_COMMAND: Command ID7, phrase ID7: gNKRmS jc VnLYoM[0m
+[0;32mI (1144) MN_COMMAND: Command ID8, phrase ID8: DgKRmS jc VnLYoM[0m
+[0;32mI (1154) MN_COMMAND: Command ID9, phrase ID9: TkN nN jc TmVm[0m
+[0;32mI (1164) MN_COMMAND: Command ID10, phrase ID10: TkN eF jc TmVm[0m
+[0;32mI (1164) MN_COMMAND: Command ID11, phrase ID11: MdK Mm c Tm[0m
+[0;32mI (1174) MN_COMMAND: Command ID12, phrase ID12: MdK Mm c KnFm[0m
+[0;32mI (1184) MN_COMMAND: Command ID13, phrase ID13: TkN nN jc LiT[0m
+[0;32mI (1184) MN_COMMAND: Command ID14, phrase ID14: TkN eF jc LiT[0m
+[0;32mI (1194) MN_COMMAND: Command ID15, phrase ID15: pdNq jc KcLk To RfD[0m
+[0;32mI (1204) MN_COMMAND: Command ID16, phrase ID16: pdNq jc KcLk To GRmN[0m
+[0;32mI (1204) MN_COMMAND: Command ID17, phrase ID17: TkN nN eL jc LiTS[0m
+[0;32mI (1214) MN_COMMAND: Command ID18, phrase ID18: TkN eF eL jc LiTS[0m
+[0;32mI (1224) MN_COMMAND: Command ID19, phrase ID19: TkN nN jc fR KcNDgscNk[0m
+[0;32mI (1224) MN_COMMAND: Command ID20, phrase ID20: TkN eF jc fR KcNDgscNk[0m
+[0;32mI (1234) MN_COMMAND: Command ID21, phrase ID21: SfT jc TfMPRcpk To SgKSTmN DgGRmZ[0m
+[0;32mI (1244) MN_COMMAND: Command ID22, phrase ID22: SfT jc TfMPRcpk To SfVcNTmN DgGRmZ[0m
+[0;32mI (1254) MN_COMMAND: Command ID23, phrase ID23: SfT jc TfMPRcpk To dTmN DgGRmZ[0m
+[0;32mI (1264) MN_COMMAND: Command ID24, phrase ID24: SfT jc TfMPRcpk To NiNTmN DgGRmZ[0m
+[0;32mI (1264) MN_COMMAND: Command ID25, phrase ID25: SfT jc TfMPRcpk To TWfNTm DgGRmZ[0m
+[0;32mI (1274) MN_COMMAND: Command ID26, phrase ID26: SfT jc TfMPRcpk To TWfNTm WcN DgGRmZ[0m
+[0;32mI (1284) MN_COMMAND: Command ID27, phrase ID27: SfT jc TfMPRcpk To TWfNTm To DgGRmZ[0m
+[0;32mI (1294) MN_COMMAND: Command ID28, phrase ID28: SfT jc TfMPRcpk To TWfNTm vRm DgGRmZ[0m
+[0;32mI (1304) MN_COMMAND: Command ID29, phrase ID29: SfT jc TfMPRcpk To TWfNTm FeR DgGRmZ[0m
+[0;32mI (1314) MN_COMMAND: Command ID30, phrase ID30: SfT jc TfMPRcpk To TWfNTm FiV DgGRmZ[0m
+[0;32mI (1314) MN_COMMAND: Command ID31, phrase ID31: SfT jc TfMPRcpk To TWfNTm SgKS DgGRmZ[0m
+[0;32mI (1324) MN_COMMAND: ---------------------------------------------------------
+[0m
+phrase id:0, command id:0, str:T f ...
+phrase id:1, command id:1, str:S g ...
+phrase id:2, command id:2, str:P L ...
+phrase id:3, command id:3, str:T k ...
+phrase id:4, command id:4, str:T k ...
+phrase id:5, command id:5, str:h i ...
+phrase id:6, command id:6, str:L b ...
+phrase id:7, command id:7, str:g N ...
+phrase id:8, command id:8, str:D g ...
+phrase id:9, command id:9, str:T k ...
+phrase id:10, command id:10, str:T k ...
+phrase id:11, command id:11, str:M d ...
+phrase id:12, command id:12, str:M d ...
+phrase id:13, command id:13, str:T k ...
+phrase id:14, command id:14, str:T k ...
+phrase id:15, command id:15, str:p d ...
+phrase id:16, command id:16, str:p d ...
+phrase id:17, command id:17, str:T k ...
+phrase id:18, command id:18, str:T k ...
+phrase id:19, command id:19, str:T k ...
+phrase id:20, command id:20, str:T k ...
+phrase id:21, command id:21, str:S f ...
+phrase id:22, command id:22, str:S f ...
+phrase id:23, command id:23, str:S f ...
+phrase id:24, command id:24, str:S f ...
+phrase id:25, command id:25, str:S f ...
+phrase id:26, command id:26, str:S f ...
+phrase id:27, command id:27, str:S f ...
+phrase id:28, command id:28, str:S f ...
+phrase id:29, command id:29, str:S f ...
+phrase id:30, command id:30, str:S f ...
+phrase id:31, command id:31, str:S f ...
+------------detect start------------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 1
+TOP 1, command_id: 13, phrase_id: 13, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.311247
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 1
+TOP 1, command_id: 13, phrase_id: 13, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.437753
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.478596
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 19, phrase_id: 19, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.193174
+TOP 2, command_id: 20, phrase_id: 20, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.136366
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 19, phrase_id: 19, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.446963
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.272705
+TOP 2, command_id: 14, phrase_id: 14, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.165468
+TOP 3, command_id: 9, phrase_id: 9, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.078421
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.126804
+TOP 2, command_id: 17, phrase_id: 17, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.055061
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.268515
+TOP 2, command_id: 9, phrase_id: 9, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.132170
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.298939
+TOP 2, command_id: 10, phrase_id: 10, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.109659
+-----------listening-----------
+timeout, string:�7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.331229
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.219087
+TOP 2, command_id: 9, phrase_id: 9, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.066352
+-----------listening-----------
+timeout, string:�7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.238497
+TOP 2, command_id: 9, phrase_id: 9, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.113722
+-----------listening-----------
+timeout, string:�7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.172217
+TOP 2, command_id: 9, phrase_id: 9, string: �7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#, prob: 0.065862
+-----------listening-----------
+timeout, string:�7�����Z��Z���ׄT�]��3)jNA�ɵځ8wԄ[����O"�{����N"�Yq�,b�#
+
+-----------awaits to be waken up-----------
+[0;32mI (789) AFE_SR: aec_init: 0, se_init: 1, vad_init: 1
+[0m
+[0;32mI (789) AFE_SR: wakenet_init: 1
+[0m
+MC Quantized wakenet9: wakeNet9_v1h24_hiesp_3_0.63_0.635, tigger:v3, mode:2, p:0, (Jun  2 2023 11:39:44)
+[0;32mI (929) AFE_SR: wake num: 2, mode: 0, (Jun  2 2023 11:39:44)
+[0m
+multinet:mn5q8_en
+[0;32mI (929) main_task: Returned from app_main()[0m
+Quantized8 Multinet5: MN5Q8_v2_english_8_0.9_0.90, beam search:v2, (Jun  2 2023 11:39:44)
+esp_mn_commands_update_from_sdkconfig
+[0;32mI (1109) MN_COMMAND: ---------------------SPEECH COMMANDS---------------------[0m
+[0;32mI (1109) MN_COMMAND: Command ID0, phrase ID0: TfL Mm c qbK[0m
+[0;32mI (1119) MN_COMMAND: Command ID1, phrase ID1: Sgl c Sel[0m
+[0;32mI (1119) MN_COMMAND: Command ID2, phrase ID2: PLd NoZ paNcL[0m
+[0;32mI (1129) MN_COMMAND: Command ID3, phrase ID3: TkN nN Mi StNDBnKS[0m
+[0;32mI (1139) MN_COMMAND: Command ID4, phrase ID4: TkN eF Mi StNDBnKS[0m
+[0;32mI (1139) MN_COMMAND: Command ID5, phrase ID5: hicST VnLYoM[0m
+[0;32mI (1149) MN_COMMAND: Command ID6, phrase ID6: LbcST VnLYoM[0m
+[0;32mI (1159) MN_COMMAND: Command ID7, phrase ID7: gNKRmS jc VnLYoM[0m
+[0;32mI (1159) MN_COMMAND: Command ID8, phrase ID8: DgKRmS jc VnLYoM[0m
+[0;32mI (1169) MN_COMMAND: Command ID9, phrase ID9: TkN nN jc TmVm[0m
+[0;32mI (1179) MN_COMMAND: Command ID10, phrase ID10: TkN eF jc TmVm[0m
+[0;32mI (1179) MN_COMMAND: Command ID11, phrase ID11: MdK Mm c Tm[0m
+[0;32mI (1189) MN_COMMAND: Command ID12, phrase ID12: MdK Mm c KnFm[0m
+[0;32mI (1199) MN_COMMAND: Command ID13, phrase ID13: TkN nN jc LiT[0m
+[0;32mI (1199) MN_COMMAND: Command ID14, phrase ID14: TkN eF jc LiT[0m
+[0;32mI (1209) MN_COMMAND: Command ID15, phrase ID15: pdNq jc KcLk To RfD[0m
+[0;32mI (1209) MN_COMMAND: Command ID16, phrase ID16: pdNq jc KcLk To GRmN[0m
+[0;32mI (1219) MN_COMMAND: Command ID17, phrase ID17: TkN nN eL jc LiTS[0m
+[0;32mI (1229) MN_COMMAND: Command ID18, phrase ID18: TkN eF eL jc LiTS[0m
+[0;32mI (1239) MN_COMMAND: Command ID19, phrase ID19: TkN nN jc fR KcNDgscNk[0m
+[0;32mI (1239) MN_COMMAND: Command ID20, phrase ID20: TkN eF jc fR KcNDgscNk[0m
+[0;32mI (1249) MN_COMMAND: Command ID21, phrase ID21: SfT jc TfMPRcpk To SgKSTmN DgGRmZ[0m
+[0;32mI (1259) MN_COMMAND: Command ID22, phrase ID22: SfT jc TfMPRcpk To SfVcNTmN DgGRmZ[0m
+[0;32mI (1269) MN_COMMAND: Command ID23, phrase ID23: SfT jc TfMPRcpk To dTmN DgGRmZ[0m
+[0;32mI (1269) MN_COMMAND: Command ID24, phrase ID24: SfT jc TfMPRcpk To NiNTmN DgGRmZ[0m
+[0;32mI (1279) MN_COMMAND: Command ID25, phrase ID25: SfT jc TfMPRcpk To TWfNTm DgGRmZ[0m
+[0;32mI (1289) MN_COMMAND: Command ID26, phrase ID26: SfT jc TfMPRcpk To TWfNTm WcN DgGRmZ[0m
+[0;32mI (1299) MN_COMMAND: Command ID27, phrase ID27: SfT jc TfMPRcpk To TWfNTm To DgGRmZ[0m
+[0;32mI (1309) MN_COMMAND: Command ID28, phrase ID28: SfT jc TfMPRcpk To TWfNTm vRm DgGRmZ[0m
+[0;32mI (1319) MN_COMMAND: Command ID29, phrase ID29: SfT jc TfMPRcpk To TWfNTm FeR DgGRmZ[0m
+[0;32mI (1319) MN_COMMAND: Command ID30, phrase ID30: SfT jc TfMPRcpk To TWfNTm FiV DgGRmZ[0m
+[0;32mI (1329) MN_COMMAND: Command ID31, phrase ID31: SfT jc TfMPRcpk To TWfNTm SgKS DgGRmZ[0m
+[0;32mI (1339) MN_COMMAND: ---------------------------------------------------------
+[0m
+phrase id:0, command id:0, str:T f ...
+phrase id:1, command id:1, str:S g ...
+phrase id:2, command id:2, str:P L ...
+phrase id:3, command id:3, str:T k ...
+phrase id:4, command id:4, str:T k ...
+phrase id:5, command id:5, str:h i ...
+phrase id:6, command id:6, str:L b ...
+phrase id:7, command id:7, str:g N ...
+phrase id:8, command id:8, str:D g ...
+phrase id:9, command id:9, str:T k ...
+phrase id:10, command id:10, str:T k ...
+phrase id:11, command id:11, str:M d ...
+phrase id:12, command id:12, str:M d ...
+phrase id:13, command id:13, str:T k ...
+phrase id:14, command id:14, str:T k ...
+phrase id:15, command id:15, str:p d ...
+phrase id:16, command id:16, str:p d ...
+phrase id:17, command id:17, str:T k ...
+phrase id:18, command id:18, str:T k ...
+phrase id:19, command id:19, str:T k ...
+phrase id:20, command id:20, str:T k ...
+phrase id:21, command id:21, str:S f ...
+phrase id:22, command id:22, str:S f ...
+phrase id:23, command id:23, str:S f ...
+phrase id:24, command id:24, str:S f ...
+phrase id:25, command id:25, str:S f ...
+phrase id:26, command id:26, str:S f ...
+phrase id:27, command id:27, str:S f ...
+phrase id:28, command id:28, str:S f ...
+phrase id:29, command id:29, str:S f ...
+phrase id:30, command id:30, str:S f ...
+phrase id:31, command id:31, str:S f ...
+------------detect start------------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 1
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.342188
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.236629
+TOP 2, command_id: 17, phrase_id: 17, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.121359
+TOP 3, command_id: 10, phrase_id: 10, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.070291
+TOP 4, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.067218
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.237195
+TOP 2, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.089070
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.432154
+-----------listening-----------
+TOP 1, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.057007
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.331943
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.312471
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.282816
+TOP 2, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.153567
+TOP 3, command_id: 10, phrase_id: 10, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.090356
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.351933
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.120871
+TOP 2, command_id: 17, phrase_id: 17, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.097503
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.122443
+TOP 2, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.057670
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.312407
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.444359
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.222438
+TOP 2, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.111138
+TOP 3, command_id: 10, phrase_id: 10, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.063431
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.253492
+TOP 2, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.087469
+-----------listening-----------
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.092920
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.368638
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.435015
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 1
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.307076
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.201710
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.365518
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.334446
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.225904
+TOP 2, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.203452
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.155122
+TOP 2, command_id: 10, phrase_id: 10, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.145254
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.406267
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.236268
+TOP 2, command_id: 10, phrase_id: 10, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.217096
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.298737
+TOP 2, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.127325
+TOP 3, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.121966
+-----------listening-----------
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.373873
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.284244
+TOP 2, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.172099
+TOP 3, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.073471
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.136437
+TOP 2, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.091776
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.258467
+TOP 2, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.194133
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.175331
+TOP 2, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.116111
+TOP 3, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.078043
+-----------listening-----------
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.075693
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.110322
+TOP 2, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.083927
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 1
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.286160
+TOP 2, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.105481
+-----------listening-----------
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.062669
+-----------listening-----------
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.252980
+TOP 2, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.110527
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.138134
+TOP 2, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.084155
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 1
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.289755
+TOP 2, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.197956
+TOP 3, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.109709
+-----------listening-----------
+TOP 1, command_id: 9, phrase_id: 9, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.065004
+TOP 2, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.061324
+-----------listening-----------
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.121773
+TOP 2, command_id: 10, phrase_id: 10, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.091943
+-----------listening-----------
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.106317
+TOP 2, command_id: 19, phrase_id: 19, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.055357
+TOP 3, command_id: 20, phrase_id: 20, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.054270
+-----------listening-----------
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.056241
+-----------listening-----------
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.154763
+TOP 2, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.116636
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.085878
+TOP 2, command_id: 17, phrase_id: 17, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.069904
+-----------listening-----------
+TOP 1, command_id: 19, phrase_id: 19, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.052546
+TOP 2, command_id: 17, phrase_id: 17, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.051280
+-----------listening-----------
+timeout, string:)w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�"
+
+-----------awaits to be waken up-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 14, phrase_id: 14, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.117908
+TOP 2, command_id: 13, phrase_id: 13, string: )w����g�Z��Z��䗄T�]0�2)jNA���کw�[߿`�OB�{����Ob�]q�&b�", prob: 0.117691
+-----------listening-----------
+WAKEWORD DETECTED
+AFE_FETCH_CHANNEL_VERIFIED, channel index: 0
+TOP 1, command_id: 13, ph
